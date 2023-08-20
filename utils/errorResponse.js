@@ -4,3 +4,4 @@ class ErrorResponse extends Error {
     this.statusCode = statusCode;
   }
 }
+module.exports.errorResponse = ErrorResponse;
