@@ -59,3 +59,21 @@ module.exports.createProduct = asyncHandler(async (req, res, next) => {
 
   res.status(201).json({ statusCode: res.statusCode, newProduct });
 });
+
+module.exports.updateProduct = asyncHandler(async (req, res, next) => {
+  const productId = req.params.id;
+  const { ProductName, Price, CategoryID } = req.body;
+
+  const product = await Product.findByPk(productId);
+
+  if (!product) {
+    return next(new ErrorResponse("Product not found", 404));
+  }
+
+  product.ProductName = ProductName;
+  product.Price = Price;
+  product.CategoryID = CategoryID;
+
+  await product.save();
+  res.json({ statusCode: res.statusCode, product });
+});
