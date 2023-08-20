@@ -77,3 +77,15 @@ module.exports.updateProduct = asyncHandler(async (req, res, next) => {
   await product.save();
   res.json({ statusCode: res.statusCode, product });
 });
+
+module.exports.deleteProduct = asyncHandler(async (req, res, next) => {
+  const productId = req.params.id;
+  const product = await Product.findByPk(productId);
+  if (!product) {
+    return next(new ErrorResponse("Product not found", 404));
+  }
+
+  await product.destroy();
+
+  res.status(200).json({ statusCode: res.statusCode, product });
+});
