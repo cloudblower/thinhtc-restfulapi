@@ -47,3 +47,15 @@ module.exports.getProductByID = asyncHandler(async (req, res, next) => {
 
   res.json({ statusCode: res.statusCode, product });
 });
+
+module.exports.createProduct = asyncHandler(async (req, res, next) => {
+  const { ProductName, Price, CategoryID } = req.body;
+
+  const newProduct = await Product.create({
+    ProductName,
+    Price,
+    CategoryID,
+  });
+
+  res.status(201).json({ statusCode: res.statusCode, newProduct });
+});
