@@ -1,4 +1,4 @@
-const { ErrorResponse } = require("../utils/errorResponse");
+const ErrorResponse = require("../utils/errorResponse");
 
 exports.errorHandler = (err, req, res, next) => {
   // Log error details to the console for development
