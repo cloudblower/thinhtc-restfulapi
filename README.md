@@ -4,7 +4,9 @@
 
     Công nghệ/Thư viện được sử dụng: NodeJS/Express/Sequelize/Mysql
 
-    Em sử dụng Database được cấp ở bài SQL để tiết kiệm thời gian
+    Em sử dụng Database được cấp ở bài SQL trước đó để tiết kiệm thời gian.
+
+    Dữ liệu nằm ở trong file "Database.sql"
 
 ## CÁC PHƯƠNG THỨC API:
 
